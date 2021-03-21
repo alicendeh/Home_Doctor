@@ -92,5 +92,13 @@ router.put("/:id", Auth, async (req, res) => {
 });
 
 //viiew all users in the system
-
+router.get("/allUsers", Auth, async (req, res) => {
+  try {
+    let user = await Users.find({}).select("username").select("speciality").sort({Date:-1});
+    return res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ msg: "Server Error" });
+    console.log(error.message);
+  }
+});
 module.exports = router;
