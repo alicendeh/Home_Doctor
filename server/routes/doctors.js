@@ -8,7 +8,7 @@ router.get("/", Auth, async (req, res) => {
   try {
     let stat = req.user.id.status;
 
-    let user = await Users.find({}).where("status").equals("doctor");
+    let user = await Users.find({}).where("status").equals("doctor").sort({Date:-1});
     
       res.json({user});
     

@@ -65,12 +65,32 @@ router.post(
 router.get("/", Auth, async (req, res) => {
   try {
     let user = await Users.findById(req.user.id);
-      return res.status(200).json({ user });
-  
+    return res.status(200).json({ user });
   } catch (error) {
     res.status(500).json({ msg: "Server Error" });
     console.log(error.message);
   }
 });
+
+//update Profile:Private
+router.put("/:id", Auth, async (req, res) => {
+  try {
+    let user = await Users.findByIdAndUpdate(req.params.id, req.body, {
+      runValidators: true,
+      new: true,
+    })
+      .select("-password")
+      .select("-status");
+    if (!user) {
+      return res.status(400).json({ msg: "No such user" });
+    }
+    return res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ msg: "Server Error" });
+    console.log(error.message);
+  }
+});
+
+//viiew all users in the system
 
 module.exports = router;
