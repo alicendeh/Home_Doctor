@@ -5,7 +5,10 @@ const app = express();
 
 DataBase();
 
+app.use(express.json({extended: false}))
+
 app.use("/HomeDoctor/users", require("./routes/users"));
+
 
 const PORT = 7000;
 
