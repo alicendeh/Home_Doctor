@@ -11,7 +11,7 @@ const UserSchema = mongoose.Schema({
     unique: true,
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      'Please add a valid email',
+      "Please add a valid email",
     ],
   },
   password: {
@@ -34,8 +34,14 @@ const UserSchema = mongoose.Schema({
       "radiology",
       "cardiology",
       "others",
+      "null"
+      
     ],
-    default: null,
+    default: "null",
+  },
+  Date: {
+    type: Date,
+    default: Date.now(),
   },
 });
 
