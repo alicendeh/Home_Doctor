@@ -7,11 +7,11 @@ const Users = require("../Models/Users");
 const router = express.Router();
 
 
-//Users SIGNUP:PUBLIC
+//Users LOGIN:PUBLIC
 router.post(
   "/",
   [
-    check("username", "Please enter your Name").not().isEmpty(),
+    // check("username", "Please a Valid Name").not().isEmpty(),
     check("email", "Please enter a valid email address").isEmail(),
     check(
       "password",
@@ -23,17 +23,18 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { username, email, password, status, speciality } = req.body;
+    const {  email, password,  } = req.body;
 
     try {
       let user = await Users.findOne({ email });
-      if (user) {
-        return res.status(400).json({ msg: "User Already Exists" });
+      if (!user) {
+        return res.status(400).json({ msg: "Invalid Credentials" });
       }
-      user = new Users({ username, email, password, status, speciality });
-      const salt = await bcrypt.genSalt(11);
-      user.password = await bcrypt.hash(password, salt);
-      await user.save();
+
+      const match = await bcrypt.compare(password,user.password)
+        if (!match) {
+        return res.status(400).json({ msg: "Invalid Credentials" });
+      }
       const payload = {
         user: {
           id: user.id,
