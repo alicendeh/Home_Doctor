@@ -9,6 +9,8 @@ app.use(express.json({extended: false}))
 
 app.use("/HomeDoctor/users", require("./routes/users"));
 app.use("/HomeDoctor/auth", require("./routes/auth"));
+app.use("/HomeDoctor/doctors", require("./routes/doctors"));
+
 
 
 const PORT = 7000;

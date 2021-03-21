@@ -64,14 +64,13 @@ router.post(
 
 router.get("/", Auth, async (req, res) => {
   try {
-    let user = await Users.findById(req.user.id).select("-password");
-    return res.status(200).json({ user });
+    let user = await Users.findById(req.user.id);
+      return res.status(200).json({ user });
+  
   } catch (error) {
     res.status(500).json({ msg: "Server Error" });
     console.log(error.message);
   }
 });
-
-
 
 module.exports = router;
