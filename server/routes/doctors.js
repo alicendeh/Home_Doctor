@@ -101,7 +101,7 @@ router.put("/update/approve/:id",Auth,async(req,res)=>{
   }
 })
 
-// // update a docs field to approval
+ // update a docs field to approval
 router.put("/update/clear/:id",Auth,async(req,res)=>{
   try {
     let appointment = await App.findByIdAndUpdate(req.params.id,{aStatus:"clear"},{
@@ -119,4 +119,20 @@ router.put("/update/clear/:id",Auth,async(req,res)=>{
   }
 })
 
+//delete and appointment
+  
+  router.delete('/delete/appointment/:id',Auth,async(req,res)=>{
+    try {
+      let appointment = await App.findOneAndDelete(req.params.id)
+      if(!appointment){
+        return res.status(400).json({msg:"No such appointment to be edited"})
+    
+      }
+      return res.status(200).json({})
+    
+    } catch (error) {
+      res.status(500).json({ msg: 'Server Error' });
+      console.log(error.message); 
+    }
+      })
 module.exports = router;
