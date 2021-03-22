@@ -6,7 +6,7 @@ import { View, Text, StyleSheet } from "react-native";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>YayaChangedSomething</Text>
+      <Text>YayaChangedSomething and Alice added something</Text>
     </View>
   );
 };
