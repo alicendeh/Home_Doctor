@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const Users = require("../Models/Users");
 const Auth = require("../middleware/Auth");
+const App = require("../Models/Appointment")
 
 const router = express.Router();
 
@@ -101,6 +102,22 @@ router.get("/allUsers", Auth, async (req, res) => {
   }
 });
 
+//users notification regarding appointments
+router.get("/user/notification",Auth,async(req,res)=>{
+  try {
+    
 
+    let user = await App.find({})
+      .where("user")
+      .equals(req.user.id)
+      
+
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ msg: "Server Error" });
+    console.log(error.message);
+  }
+
+})
 
 module.exports = router;
