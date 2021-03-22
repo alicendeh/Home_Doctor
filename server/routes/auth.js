@@ -91,7 +91,7 @@ router.put("/:id", Auth, async (req, res) => {
   }
 });
 
-//viiew all users in the system
+//view all users in the system
 router.get("/allUsers", Auth, async (req, res) => {
   try {
     let user = await Users.find({}).select("username").select("speciality").sort({Date:-1});

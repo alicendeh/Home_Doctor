@@ -34,10 +34,13 @@ const UserSchema = mongoose.Schema({
       "radiology",
       "cardiology",
       "others",
-      "null"
-      
+      "null",
     ],
     default: "null",
+  },
+  appiontment: {
+    type: [String],
+    default: ["10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00"],
   },
   Date: {
     type: Date,
