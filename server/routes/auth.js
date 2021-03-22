@@ -11,7 +11,6 @@ const router = express.Router();
 router.post(
   "/",
   [
-    // check("username", "Please a Valid Name").not().isEmpty(),
     check("email", "Please enter a valid email address").isEmail(),
     check(
       "password",
@@ -101,4 +100,7 @@ router.get("/allUsers", Auth, async (req, res) => {
     console.log(error.message);
   }
 });
+
+
+
 module.exports = router;

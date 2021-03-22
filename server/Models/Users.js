@@ -38,14 +38,16 @@ const UserSchema = mongoose.Schema({
     ],
     default: "null",
   },
-  appiontment: {
-    type: [String],
-    default: ["10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00"],
-  },
+ 
+  
   Date: {
     type: Date,
     default: Date.now(),
   },
+  gender:{
+    type:String,
+    enum:["male","female"]
+  }
 });
 
 module.exports = mongoose.model("UserModel", UserSchema);
