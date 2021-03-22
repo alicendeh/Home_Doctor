@@ -86,7 +86,25 @@ router.get("/apointment/getAll",Auth,async(req,res)=>{
 // // update a docs field to approval
 router.put("/update/approve/:id",Auth,async(req,res)=>{
   try {
-    let appointment = await App.findByIdAndUpdate(req.params.id,req.body,{
+    let appointment = await App.findByIdAndUpdate(req.params.id,{aStatus:"approved"},{
+      new:true,
+      runValidators:true
+    })
+    if (!appointment) {
+      return res.status(400).json({ msg: "No such appointment" });
+    }
+    return res.status(200).json({ appointment });
+
+  } catch (error) {
+    res.status(500).json({ msg: "Server Error" });
+    console.log(error.message);
+  }
+})
+
+// // update a docs field to approval
+router.put("/update/clear/:id",Auth,async(req,res)=>{
+  try {
+    let appointment = await App.findByIdAndUpdate(req.params.id,{aStatus:"clear"},{
       new:true,
       runValidators:true
     })
