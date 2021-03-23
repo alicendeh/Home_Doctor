@@ -6,8 +6,16 @@ import { View, Text, StyleSheet } from "react-native";
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>YayaChangedSomething and Alice added something </Text>
-      <Text>hey there</Text>
+      <Text style={{
+        fontFamily:"Poppins-Light",
+        fontSize:25,
+        fontWeight:"bold"
+      }}>Hello Stephen</Text>
+      <Text style={{
+        fontFamily:"PortLligatSans-Regular",
+        fontSize:28,
+        color:"rgba(29, 196, 196, 0.47)"
+      }}>Hello Stephen</Text>
     </View>
   );
 };
@@ -18,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#2c3e50",
+    backgroundColor:"#f5f5f5"
   },
 });
 
