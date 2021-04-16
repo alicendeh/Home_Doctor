@@ -1,22 +1,28 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import BottomTabNavig from './src/Navigation/BottomNavigation';
+import Drawer from './src/Navigation/Home';
+import Login from './src/Navigation/Login';
+import axios from 'axios';
 // create a component
-const App = () => {
+const Stack = createStackNavigator();
+
+const MyComponent = () => {
   return (
-    <View style={styles.container}>
-      <Text style={{
-        fontFamily:"Poppins-Light",
-        fontSize:25,
-        fontWeight:"bold"
-      }}>Hello Stephen</Text>
-      <Text style={{
-        fontFamily:"PortLligatSans-Regular",
-        fontSize:28,
-        color:"rgba(29, 196, 196, 0.47)"
-      }}>Hello Stephen</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Drawer"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen component={Drawer} name="Drawer" />
+        {/* <Stack.Screen component={Login} name="Login" /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
@@ -24,11 +30,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor:"#f5f5f5"
   },
 });
 
 //make this component available to the app
-export default App;
+export default MyComponent;
