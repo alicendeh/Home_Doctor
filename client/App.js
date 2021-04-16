@@ -7,6 +7,7 @@ import BottomTabNavig from './src/Navigation/BottomNavigation';
 import Drawer from './src/Navigation/Home';
 import Login from './src/Navigation/Login';
 import axios from 'axios';
+
 // create a component
 const Stack = createStackNavigator();
 
@@ -20,7 +21,6 @@ const MyComponent = () => {
         }}
       >
         <Stack.Screen component={Drawer} name="Drawer" />
-        {/* <Stack.Screen component={Login} name="Login" /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

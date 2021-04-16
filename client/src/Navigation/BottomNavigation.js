@@ -11,7 +11,6 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import Icon1 from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 import Icon3 from 'react-native-vector-icons/SimpleLineIcons';
-
 // create a component
 const Tab = createMaterialBottomTabNavigator();
 

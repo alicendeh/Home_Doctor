@@ -9,10 +9,20 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+
+const { width, height } = Dimensions.get('screen');
 // create a component
 const DoctorModal = (props) => {
+  const navigation = useNavigation();
+
+  const appointmentPage = () => {
+    props.close();
+    navigation.navigate('Appointment');
+  };
   return (
     <Modal visible={props.openModal} statusBarTranslucent>
       <View style={styles.container}>
@@ -49,9 +59,9 @@ const DoctorModal = (props) => {
             <Text style={styles.des}>{props.item.description} </Text>
           </View>
         </ScrollView>
-        <View style={styles.box}>
+        <TouchableOpacity style={styles.box} onPress={appointmentPage}>
           <Text style={styles.sch}>View {props.item.name}'s Schedule </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </Modal>
   );
@@ -65,10 +75,15 @@ const styles = StyleSheet.create({
   mainView: {
     backgroundColor: 'blue',
     height: '50%',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   img: {
-    width: '100%',
-    height: '100%',
+    width: width * 1,
+    height: height * 0.47,
+    flex: 1,
+    alignSelf: 'center',
   },
   icon: {
     margin: 8,
