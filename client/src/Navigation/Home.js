@@ -1,11 +1,11 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import BottomNavigation from './BottomNavigation';
-import Signup from './Auth';
-import Login from './Login';
-import Appointment from '../Components/Appointment/Appointment';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import BottomNavigation from "./BottomNavigation";
+import Signup from "./Auth";
+import Login from "./Login";
+import Appointment from "../Components/Appointment/Appointment";
 
 // create a component
 
