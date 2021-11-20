@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -7,9 +7,8 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
-import Elevations from 'react-native-elevation';
+} from "react-native";
+import Icon from "react-native-vector-icons/Entypo";
 
 // create a component
 const Message = ({ navigation }) => {
@@ -23,11 +22,11 @@ const Message = ({ navigation }) => {
               navigation.openDrawer();
             }}
           >
-            <Image source={require('../../../assets/images/stair.png')} />
+            <Image source={require("../../../assets/images/stair.png")} />
           </TouchableOpacity>
           <View style={styles.userImg}>
             <Image
-              source={{ uri: 'https://cutt.ly/qviZNy8' }}
+              source={{ uri: "https://cutt.ly/qviZNy8" }}
               style={styles.userImg1}
             />
           </View>
@@ -49,31 +48,31 @@ const Message = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 19,
-    flexDirection: 'row',
-    width: '58%',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    width: "58%",
+    justifyContent: "space-between",
   },
   userImg: {
     width: 50,
     height: 50,
   },
   userImg1: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderRadius: 50,
     marginHorizontal: 8,
   },
   txt: {
     fontSize: 27,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   stair: {
     margin: 8,
   },
   icon: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ffa800',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#ffa800",
     width: 50,
     height: 50,
     padding: 8,
@@ -81,19 +80,19 @@ const styles = StyleSheet.create({
     margin: 14,
   },
   mainC: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   input: {
     borderWidth: 0.7,
-    borderColor: '#ffa800',
-    width: '90%',
+    borderColor: "#ffa800",
+    width: "90%",
     borderRadius: 24,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     marginHorizontal: 14,
     paddingHorizontal: 10,
     elevation: 15,
-    shadowColor: 'black',
+    shadowColor: "black",
   },
 });
 

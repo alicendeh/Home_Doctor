@@ -1,7 +1,7 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Header from '../Components/PersonalMessage/Header';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import Header from "../../Components/PersonalMessage/Header";
 // create a component
 const Message = () => {
   return (

@@ -1,8 +1,8 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import TopContent from '../Components/Tips/TopContent';
-import MiddleContent from '../Components/Tips/MiddleContent';
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import TopContent from "../../Components/Tips/TopContent";
+import MiddleContent from "../../Components/Tips/MiddleContent";
 // create a component
 const MyComponent = () => {
   return (
@@ -17,7 +17,7 @@ const MyComponent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
 });
 

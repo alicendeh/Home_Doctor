@@ -1,23 +1,19 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import BottomNavigation from "./BottomNavigation";
-import Signup from "./Auth";
-import Login from "./Login";
-import Appointment from "../Components/Appointment/Appointment";
-
-// create a component
+import DrawerContent from "../Components/DrawerContent/DrawerContent.component";
 
 const Drawer = createDrawerNavigator();
 
 const Home = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Navigator
+      initialRouteName="Home"
+      drawerContent={(props) => <DrawerContent />}
+    >
       <Drawer.Screen name="Home" component={BottomNavigation} />
-      <Drawer.Screen name="Signup" component={Signup} />
-      <Drawer.Screen name="Login" component={Login} />
-      <Drawer.Screen name="Appointment" component={Appointment} />
     </Drawer.Navigator>
   );
 };

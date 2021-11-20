@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -8,21 +8,19 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-} from 'react-native';
-import Icon1 from 'react-native-vector-icons/Entypo';
-import Icon2 from 'react-native-vector-icons/FontAwesome5';
-import Icon3 from 'react-native-vector-icons/SimpleLineIcons';
-import Icon4 from 'react-native-vector-icons/MaterialCommunityIcons';
-import LinnearGradient from 'react-native-linear-gradient';
+} from "react-native";
+import Icon1 from "react-native-vector-icons/Entypo";
+import Icon4 from "react-native-vector-icons/MaterialCommunityIcons";
+import LinnearGradient from "react-native-linear-gradient";
 // create a component
 const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.imgView}>
-        <Image source={require('../../assets/images/designntop.png')} />
+        <Image source={require("../../../assets/images/designntop.png")} />
       </View>
       <View style={styles.vector}>
-        <Image source={require('../../assets/images/Vector.png')} />
+        <Image source={require("../../../assets/images/Vector.png")} />
       </View>
       <View style={styles.welcomeView}>
         <Text style={styles.txt}>Welcome back,</Text>
@@ -63,7 +61,7 @@ const Login = ({ navigation }) => {
           </View>
         </View>
         <LinnearGradient
-          colors={['#13c2c2', 'rgba(29,195,195,0.47)']}
+          colors={["#13c2c2", "rgba(29,195,195,0.47)"]}
           style={styles.gradient}
           start={{ x: 0, y: 0 }}
           end={{ x: 1.43, y: 0 }}
@@ -76,7 +74,7 @@ const Login = ({ navigation }) => {
       </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Signup');
+          navigation.navigate("Authentication");
         }}
       >
         <View style={styles.sign}>
@@ -91,35 +89,35 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: "#f5f5f5",
   },
   imgView: {
     height: 200,
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    width: '100%',
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    alignItems: "flex-end",
+    width: "100%",
+    justifyContent: "flex-end",
   },
   vector: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
     marginTop: -58,
   },
   txt: {
-    fontFamily: 'Poppins-Light',
+    fontFamily: "Poppins-Light",
     fontSize: 40,
-    color: 'rgba(0,0,0,0.6)',
+    color: "rgba(0,0,0,0.6)",
   },
   welcomeView: {
     margin: 21,
   },
   txt1: {
     fontSize: 20,
-    color: '#797b7d',
+    color: "#797b7d",
   },
   gradient: {
-    width: '85%',
+    width: "85%",
     padding: 9,
     borderRadius: 5,
     marginHorizontal: 30,
@@ -127,57 +125,57 @@ const styles = StyleSheet.create({
   },
   indView: {
     // flex: 1,
-    width: '85%',
+    width: "85%",
     borderWidth: 2,
-    borderColor: '#cfcfcf',
+    borderColor: "#cfcfcf",
     height: 75,
     marginHorizontal: 30,
     marginVertical: 8,
   },
   thediv: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   iconView: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     margin: 6,
   },
   inputText: {
     flex: 1,
     fontSize: 12,
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   hide: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     padding: 8,
   },
   create: {
-    color: 'white',
-    fontFamily: 'Poppins-Light',
+    color: "white",
+    fontFamily: "Poppins-Light",
     fontSize: 21,
-    textAlign: 'center',
+    textAlign: "center",
   },
   acct: {
-    color: 'rgba(139,137,137,1)',
-    fontFamily: 'Poppins-Light',
+    color: "rgba(139,137,137,1)",
+    fontFamily: "Poppins-Light",
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     padding: 8,
   },
   sign: {
-    borderColor: 'rgba(159,205,205,1)',
+    borderColor: "rgba(159,205,205,1)",
     padding: 14,
-    width: '85%',
+    width: "85%",
     borderWidth: 2,
     marginHorizontal: 30,
     marginVertical: 8,
   },
   signTxt: {
-    fontFamily: 'Poppins-Light',
+    fontFamily: "Poppins-Light",
     fontSize: 18,
-    textAlign: 'center',
-    color: 'rgba(48,171,171,1)',
+    textAlign: "center",
+    color: "rgba(48,171,171,1)",
   },
 });
 
