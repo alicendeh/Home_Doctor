@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -7,11 +7,11 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
-import Icon1 from 'react-native-vector-icons/Entypo';
-import Icon2 from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
+} from "react-native";
+import Icon from "react-native-vector-icons/EvilIcons";
+import Icon1 from "react-native-vector-icons/Entypo";
+import Icon2 from "react-native-vector-icons/FontAwesome5";
+import { useNavigation } from "@react-navigation/native";
 
 // create a component
 const MainHome = () => {
@@ -24,16 +24,16 @@ const MainHome = () => {
     <View
       style={{
         padding: 19,
-        backgroundColor: '',
+        backgroundColor: "",
       }}
     >
       <View style={styles.div}>
         <TouchableOpacity onPress={openDrawer}>
-          <Image source={require('../../../assets/images/stair.png')} />
+          <Image source={require("../../../assets/images/stair.png")} />
         </TouchableOpacity>
         <View style={styles.userImg}>
           <Image
-            source={{ uri: 'https://cutt.ly/qviZNy8' }}
+            source={{ uri: "https://cutt.ly/qviZNy8" }}
             style={styles.userImg1}
           />
         </View>
@@ -55,25 +55,25 @@ const styles = StyleSheet.create({
     height: 50,
   },
   userImg1: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 12,
+    width: "100%",
+    height: "100%",
+    borderRadius: 50,
   },
   div: {
     padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
   },
   input: {
-    flexDirection: 'row',
+    flexDirection: "row",
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: "grey",
     marginTop: 20,
   },
   IconView: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     margin: 8,
   },
   inputext: {

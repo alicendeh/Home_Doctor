@@ -1,35 +1,35 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
+import Icon from "react-native-vector-icons/Entypo";
 
 // create a component
 const MiddleContent = () => {
   const Data = [
     {
       key: 1,
-      icon: 'lock-open',
-      name: 'Bone',
-      name2: 'Specialist',
-      bckg: '#1dc3c3',
+      icon: "lock-open",
+      name: "Bone",
+      name2: "Specialist",
+      bckg: "#1dc3c3",
     },
     {
       key: 2,
-      icon: 'lock-open',
-      name: 'Dental',
-      name2: 'Care',
+      icon: "lock-open",
+      name: "Dental",
+      name2: "Care",
     },
     {
       key: 3,
-      icon: 'lock-open',
-      name: 'Cardio',
-      name2: 'specialist',
+      icon: "lock-open",
+      name: "Cardio",
+      name2: "specialist",
     },
     {
       key: 4,
-      icon: 'lock-open',
-      name: 'Radio',
-      name2: 'Screening',
+      icon: "lock-open",
+      name: "Radio",
+      name2: "Screening",
     },
   ];
   return (
@@ -43,7 +43,7 @@ const MiddleContent = () => {
           return (
             <View
               style={{
-                backgroundColor: item.bckg || 'rgba(223, 220, 220, 0.51)',
+                backgroundColor: item.bckg || "rgba(223, 220, 220, 0.51)",
                 paddingVertical: 7,
                 paddingHorizontal: 9,
                 margin: 7,
@@ -55,14 +55,14 @@ const MiddleContent = () => {
                 <Icon
                   name={item.icon}
                   size={28}
-                  color={item.bckg ? 'white' : 'rgba(29, 195, 195, 1)'}
+                  color={item.bckg ? "white" : "rgba(29, 195, 195, 1)"}
                 />
               </View>
               <Text
                 style={{
                   fontSize: 14,
-                  color: item.bckg ? 'white' : 'rgba(29, 195, 195, 1)',
-                  textAlign: 'center',
+                  color: item.bckg ? "white" : "rgba(29, 195, 195, 1)",
+                  textAlign: "center",
                 }}
               >
                 {item.name}
@@ -70,8 +70,8 @@ const MiddleContent = () => {
               <Text
                 style={{
                   fontSize: 14,
-                  color: item.bckg ? 'white' : 'rgba(29, 195, 195, 1)',
-                  textAlign: 'center',
+                  color: item.bckg ? "white" : "rgba(29, 195, 195, 1)",
+                  textAlign: "center",
                 }}
               >
                 {item.name2}
@@ -87,8 +87,8 @@ const MiddleContent = () => {
 // define your styles
 const styles = StyleSheet.create({
   iconic: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

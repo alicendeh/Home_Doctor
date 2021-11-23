@@ -23,14 +23,8 @@ const MiddleContent = (props) => {
 
   useEffect(() => {
     setkeepThemeValue(theme);
-    console.log(keepThemeValue);
+    // console.log(keepThemeValue);
   }, [theme]);
-
-  const toggleTheme = () => {
-    setswapTheme(!swapTheme);
-    changeTheme(swapTheme);
-    console.log("sup");
-  };
 
   const Data = [
     {
@@ -98,14 +92,6 @@ const MiddleContent = (props) => {
             : themeSettings.dark.BCKG,
       }}
     >
-      <TouchableOpacity
-        onPress={toggleTheme}
-        style={{
-          backgroundColor: "red",
-          width: 50,
-          height: 50,
-        }}
-      ></TouchableOpacity>
       <FlatList
         keyExtractor={(item) => item.id}
         key={() => {

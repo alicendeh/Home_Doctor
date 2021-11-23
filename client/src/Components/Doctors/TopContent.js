@@ -1,13 +1,13 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Icon1 from 'react-native-vector-icons/Entypo';
-import Icon2 from 'react-native-vector-icons/FontAwesome5';
-import Icon3 from 'react-native-vector-icons/SimpleLineIcons';
-import Icon4 from 'react-native-vector-icons/MaterialCommunityIcons';
-import LinnearGradient from 'react-native-linear-gradient';
-import { TextInput } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import Icon1 from "react-native-vector-icons/Entypo";
+import Icon2 from "react-native-vector-icons/FontAwesome5";
+import Icon3 from "react-native-vector-icons/SimpleLineIcons";
+import Icon4 from "react-native-vector-icons/MaterialCommunityIcons";
+import LinnearGradient from "react-native-linear-gradient";
+import { TextInput } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 // create a component
 
@@ -25,11 +25,11 @@ const DoctorsPage = () => {
             navigation.openDrawer();
           }}
         >
-          <Image source={require('../../../assets/images/stair.png')} />
+          <Image source={require("../../../assets/images/stair.png")} />
         </TouchableOpacity>
         <View style={styles.userImg}>
           <Image
-            source={{ uri: 'https://cutt.ly/qviZNy8' }}
+            source={{ uri: "https://cutt.ly/qviZNy8" }}
             style={styles.userImg1}
           />
         </View>
@@ -66,37 +66,37 @@ const styles = StyleSheet.create({
     height: 50,
   },
   userImg1: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 12,
+    width: "100%",
+    height: "100%",
+    borderRadius: 50,
   },
   div: {
     padding: 8,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
   },
 
   userNameText: {
-    fontFamily: 'PortLligatSans-Regular',
+    fontFamily: "PortLligatSans-Regular",
     fontSize: 35,
   },
   input: {
-    flexDirection: 'row',
+    flexDirection: "row",
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: "grey",
     marginTop: 20,
   },
   IconView: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     margin: 8,
   },
   inputext: {
     flex: 1,
   },
   department: {
-    fontFamily: 'PortLligatSans-Regular',
+    fontFamily: "PortLligatSans-Regular",
     fontSize: 31,
     paddingVertical: 12,
   },

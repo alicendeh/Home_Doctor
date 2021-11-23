@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Chat } from "../screens";
-import Message from "./Message";
+// import Message from "./Message";
 import Icon1 from "react-native-vector-icons/Entypo";
 import Icon2 from "react-native-vector-icons/FontAwesome5";
 import Icon3 from "react-native-vector-icons/SimpleLineIcons";
@@ -63,7 +63,7 @@ const BottomNavigation = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         component={Message}
         name="Message"
         options={{
@@ -79,7 +79,7 @@ const BottomNavigation = () => {
             />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         component={Authentication}
         name="Auuthentication"
