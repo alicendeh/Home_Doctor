@@ -1,24 +1,92 @@
 //import liraries
-import React, { Component, useState } from 'react';
-import { View, Text, StyleSheet, Modal, Image, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-// create a component
-const TipsModal = (props) => {
+import React, { useContext, useState, useEffect } from "react";
+import { View, Text, StyleSheet, Modal, Image, ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
+import SettingContext from "../../Context/Seeting/SettingContext";
+import themeSettings from "../../theme";
+
+const TipsModal = ({ openModal, storeModalData, setopenModal }) => {
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
+
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+  const { description, imageUri, content } = storeModalData;
+
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
+
   return (
-    <Modal visible={props.openModal} animationType={'slide'}>
-      <View style={styles.container}>
+    <Modal visible={openModal} animationType={"slide"}>
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor:
+              keepThemeValue === false
+                ? themeSettings.light.BCKG
+                : themeSettings.dark.BCKG,
+          },
+        ]}
+      >
         <View style={styles.icon}>
-          <Icon name="arrowleft" size={21} onPress={props.close} />
+          <Icon
+            name="arrowleft"
+            size={21}
+            color={
+              keepThemeValue === false
+                ? themeSettings.dark.BCKG
+                : themeSettings.light.BCKG
+            }
+            onPress={() => setopenModal(false)}
+          />
         </View>
         <View style={styles.imgDiv}>
-          <Image style={styles.img} source={props.imageUri} />
+          <Image style={styles.img} source={imageUri} />
         </View>
         <ScrollView>
-          <View style={styles.desc}>
-            <Text style={styles.desc}> {props.description} </Text>
-          </View>
-          <View>
-            <Text style={styles.cont}> {props.content} </Text>
+          <View style={styles.textView}>
+            <View
+              style={[
+                styles.innerTextView,
+                {
+                  backgroundColor:
+                    keepThemeValue === false
+                      ? "rgba(231, 229, 229, 0.37)"
+                      : " rgba(0, 0, 0, 0.25)",
+                },
+              ]}
+            >
+              <View>
+                <Text
+                  style={[
+                    styles.desc,
+                    {
+                      color:
+                        keepThemeValue === false
+                          ? "#595e62"
+                          : themeSettings.light.BCKG,
+                    },
+                  ]}
+                >
+                  {" "}
+                  {description}{" "}
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={[
+                    styles.cont,
+                    {
+                      color: keepThemeValue === false ? "#595e62" : "#c4c4c4",
+                    },
+                  ]}
+                >
+                  {" "}
+                  {content}{" "}
+                </Text>
+              </View>
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -35,28 +103,37 @@ const styles = StyleSheet.create({
     margin: 21,
   },
   imgDiv: {
-    width: '100%',
-    height: '40%',
+    width: "100%",
+    height: "35%",
   },
   img: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     borderTopRightRadius: 18,
     borderTopLeftRadius: 18,
   },
   desc: {
-    fontSize: 24,
+    fontSize: 21,
     padding: 12,
-    color: '#595e62',
-    fontWeight: 'bold',
-    lineHeight: 38,
+    fontWeight: "bold",
+    textAlign: "center",
+    fontWeight: "bold",
   },
+
   cont: {
-    fontSize: 22,
-    color: '#595e62',
+    fontSize: 17,
+
     marginVertical: 11,
     marginHorizontal: 29,
-    lineHeight: 38,
+    textAlign: "left",
+    lineHeight: 30,
+  },
+  textView: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  innerTextView: {
+    width: "100%",
   },
 });
 

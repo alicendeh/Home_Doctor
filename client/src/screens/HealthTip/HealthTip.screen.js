@@ -1,13 +1,13 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import TopContent from "../../Components/Tips/TopContent";
+import { Header } from "../../Components";
 import MiddleContent from "../../Components/Tips/MiddleContent";
 // create a component
 const MyComponent = () => {
   return (
     <View style={styles.container}>
-      <TopContent />
+      <Header headerTtile="Health Tips" />
       <MiddleContent />
     </View>
   );

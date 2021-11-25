@@ -31,9 +31,25 @@ const MiddleContent = () => {
       name: "Radio",
       name2: "Screening",
     },
+    {
+      key: 3,
+      icon: "lock-open",
+      name: "Cardio",
+      name2: "specialist",
+    },
+    {
+      key: 4,
+      icon: "lock-open",
+      name: "Radio",
+      name2: "Screening",
+    },
   ];
   return (
-    <View>
+    <View
+      style={{
+        paddingHorizontal: 18,
+      }}
+    >
       <FlatList
         data={Data}
         showsHorizontalScrollIndicator={false}
@@ -49,6 +65,7 @@ const MiddleContent = () => {
                 margin: 7,
                 borderRadius: 12,
                 borderBottomLeftRadius: 15,
+                width: 115,
               }}
             >
               <View style={styles.iconic}>

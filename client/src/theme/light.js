@@ -11,7 +11,7 @@ const COLORS = {
   RED: "#FF0000",
   CHAT_RECEIVER: "rgba(222, 220, 220, 0.8)",
   CHAT_SENDER: "#1DC4C4",
-  BCKG: "#F5F5F5",
+  BCKG: "#f5f5f5",
 };
 
 export default COLORS;

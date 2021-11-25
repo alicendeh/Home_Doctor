@@ -7,7 +7,6 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
-  Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import themeSettings from "../../theme";
@@ -18,12 +17,11 @@ const MiddleContent = (props) => {
   const settingContext = useContext(SettingContext);
   const { theme, changeTheme } = settingContext;
   const navigation = useNavigation();
-  const [swapTheme, setswapTheme] = useState(false);
   const [keepThemeValue, setkeepThemeValue] = useState(null);
+  const [storeModalData, setstoreModalData] = useState([]);
 
   useEffect(() => {
     setkeepThemeValue(theme);
-    // console.log(keepThemeValue);
   }, [theme]);
 
   const Data = [
@@ -41,7 +39,7 @@ const MiddleContent = (props) => {
       render: "false",
 
       imageUri: require("../../../assets/images/kidney.jpeg"),
-      description: "A healthy Kidney to wrestle against cancer",
+      description: "A healthy Kidney to wrestle against cancer ",
       content:
         "Your kidneys are fist-sized organs located at the bottom of your rib cage, on both sides of your spine. They perform several functions. Most importantly, they filter waste products, excess water, and other impurities from your blood.",
     },
@@ -50,7 +48,7 @@ const MiddleContent = (props) => {
       render: "false",
 
       imageUri: require("../../../assets/images/me.jpg"),
-      description: "blood stream,heridatory or genetic?",
+      description: "blood stream,heridatory or genetic? ",
       content:
         "Your kidneys are fist-sized organs located at the bottom of your rib cage, on both sides of your spine. They perform several functions. Most importantly, they filter waste products, excess water, and other impurities from your blood.",
     },
@@ -65,21 +63,11 @@ const MiddleContent = (props) => {
   ];
 
   const [Modal, setModal] = useState(Data);
+  const [openModal, setopenModal] = useState(false);
 
-  const HandleModal = (key) => {
-    let modals = [...Data];
-    modals.map((item) => {
-      item.id == key && (item.render = true);
-    });
-    setModal(modals);
-  };
-
-  const closeModal = (key) => {
-    let modals = [...Data];
-    modals.map((item) => {
-      item.id == key && (item.render = false);
-    });
-    setModal(modals);
+  const HandleModal = (item) => {
+    setstoreModalData(item);
+    setopenModal(true);
   };
 
   return (
@@ -92,6 +80,11 @@ const MiddleContent = (props) => {
             : themeSettings.dark.BCKG,
       }}
     >
+      <ModalPop
+        storeModalData={storeModalData}
+        setopenModal={setopenModal}
+        openModal={openModal}
+      />
       <FlatList
         keyExtractor={(item) => item.id}
         key={() => {
@@ -103,33 +96,39 @@ const MiddleContent = (props) => {
             <TouchableOpacity
               activeOpacity={0.6}
               style={styles.theView}
-              onPress={() => HandleModal(item.id)}
+              onPress={() => HandleModal(item)}
             >
-              <ModalPop
-                openModal={item.render}
-                imageUri={item.imageUri}
-                description={item.description}
-                content={item.content}
-                close={closeModal}
-              />
-
               <View
                 style={{
-                  width: Dimensions.get("screen").width * 0.787,
-                  backgroundColor:
-                    keepThemeValue === true
-                      ? themeSettings.light.FOOTER
-                      : themeSettings.light.FOOTER,
-                  margin: 7,
-                  borderRadius: 15,
-                  paddingBottom: 19,
+                  alignItems: "center",
                 }}
               >
+                <View
+                  style={{
+                    backgroundColor:
+                      keepThemeValue === false
+                        ? themeSettings.light.FOOTER
+                        : "#282828",
+                    width: "100%",
+                    height: 180,
+                    borderRadius: 15,
+                    marginVertical: 51,
+                    position: "absolute",
+                  }}
+                ></View>
                 <View style={styles.imgView}>
                   <Image style={styles.imgView1} source={item.imageUri} />
-                </View>
-                <View style={styles.txtContainer}>
-                  <Text style={styles.txt}> {item.description} </Text>
+                  <Text
+                    style={[
+                      styles.txt,
+                      {
+                        color: keepThemeValue === false ? "white" : "#c4c4c4",
+                      },
+                    ]}
+                  >
+                    {" "}
+                    {item.description}{" "}
+                  </Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -144,33 +143,32 @@ const MiddleContent = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "pink",
   },
   imgView: {
-    width: Dimensions.get("screen").width * 0.787,
-    height: 200,
+    width: "80%",
+    height: 300,
   },
   imgView1: {
     width: "100%",
-    height: "100%",
+    height: "50%",
+    borderRadius: 17,
+    shadowColor: "red",
+    elevation: 85,
   },
-  // mainView: {
-  //   width: Dimensions.get("screen").width * 0.787,
-  //   backgroundColor: keepThemeValue === "true" ? "green" : "red",
-  //   margin: 7,
-  //   borderRadius: 15,
-  //   paddingBottom: 19,
-  // },
   theView: {
-    marginHorizontal: 25,
+    paddingHorizontal: 18,
   },
   txt: {
-    fontSize: 20,
-    fontFamily: "Poppins-light",
-    margin: 8,
-    color: "white",
+    fontSize: 17,
+    // color: "#c4c4c4",
+    textAlign: "center",
+    // fontWeight: "bold",
+    paddingHorizontal: 12,
+    paddingVertical: 17,
+  },
+  txtContainer: {
+    // paddingVertical: 10,
   },
 });
 
-//make this component available to the app
 export default MiddleContent;

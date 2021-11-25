@@ -1,17 +1,63 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useContext, useEffect } from "react";
+import { View, FlatList, StyleSheet, Text } from "react-native";
 import TopContent from "../../Components/Doctors/TopContent";
 import MiddleContent from "../../Components/Doctors/MiddleContent";
 import EndContent from "../../Components/Doctors/EndContent";
+import themeSettings from "../../theme";
+import SettingContext from "../../Context/Seeting/SettingContext";
 
 // create a component
 const DoctorsPage = () => {
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
+
+  const componentList = [
+    <Text
+      style={[
+        styles.department,
+        {
+          color:
+            keepThemeValue === false
+              ? themeSettings.dark.DARK
+              : themeSettings.light.BCKG,
+        },
+      ]}
+    >
+      Department
+    </Text>,
+    <MiddleContent />,
+
+    <EndContent />,
+    <>
+      <View
+        style={{
+          paddingHorizontal: 18,
+        }}
+      ></View>
+    </>,
+  ];
+  const data = [0, 1, 2, 3, 4];
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor:
+            keepThemeValue === false
+              ? themeSettings.light.BCKG
+              : themeSettings.dark.BCKG,
+        },
+      ]}
+    >
       <TopContent />
-      <MiddleContent />
-      <EndContent />
+
+      <FlatList data={data} renderItem={({ item }) => componentList[item]} />
     </View>
   );
 };
@@ -19,8 +65,13 @@ const DoctorsPage = () => {
 // define your styles
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f5f5f5",
     flex: 1,
+  },
+  department: {
+    fontFamily: "PortLligatSans-Regular",
+    fontSize: 31,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
   },
 });
 

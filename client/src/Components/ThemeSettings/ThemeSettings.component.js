@@ -1,7 +1,16 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import SettingContext from "../../Context/Seeting/SettingContext";
 
-const settingContext = useContext(SettingContext);
-const { theme } = settingContext;
+const ThemeSettings = () => {
+  //   const settingContext = useContext(SettingContext);
+  //   const { theme } = settingContext;
 
-const ThemeSettings = () => {};
+  //   useEffect(() => {
+  //     setkeepThemeValue(theme);
+  //   }, [theme]);
+
+  //   const [keepThemeValue, setkeepThemeValue] = useState(null);
+  return "keepThemeValue";
+};
+
+export default ThemeSettings;
