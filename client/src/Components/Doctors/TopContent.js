@@ -20,7 +20,7 @@ const TopContent = () => {
 
   return (
     <View>
-      <Header headerTtile="Home" />
+      <Header headerTtile="Home" placeHolder="Search doctor or speciality" />
     </View>
   );
 };

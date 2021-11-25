@@ -131,7 +131,16 @@ const EndContent = () => {
           return (
             <TouchableOpacity
               activeOpacity={0.6}
-              style={styles.mainContent}
+              style={[
+                styles.mainContent,
+                {
+                  backgroundColor:
+                    keepThemeValue === false
+                      ? "rgba(19, 194, 194, 0.09)"
+                      : "#595E62",
+                  //  ,
+                },
+              ]}
               onPress={() => HandleModal(item.id)}
             >
               <DoctorModal
@@ -144,16 +153,46 @@ const EndContent = () => {
                   <Image style={styles.imgDIv1} source={item.imageUri} />
                 </View>
                 <View style={styles.txtVIew}>
-                  <Text style={styles.ratings}>
+                  <Text
+                    style={[
+                      styles.ratings,
+                      {
+                        color:
+                          keepThemeValue === false
+                            ? themeSettings.dark.DARK
+                            : themeSettings.light.BCKG,
+                      },
+                    ]}
+                  >
                     {item.rating}
                     <Icon name="star" size={21} color="#ffa800" />
                   </Text>
-                  <Text style={styles.name}>{item.name} </Text>
+                  <Text
+                    style={[
+                      styles.name,
+                      {
+                        color:
+                          keepThemeValue === false
+                            ? themeSettings.dark.DARK
+                            : "#E5E5E5",
+                      },
+                    ]}
+                  >
+                    {item.name}{" "}
+                  </Text>
                   <Text style={styles.specdiality}>{item.speciality} </Text>
                 </View>
               </View>
               <View style={styles.content2}>
-                <Icon name="dots-three-vertical" size={24} />
+                <Icon
+                  name="dots-three-vertical"
+                  color={
+                    keepThemeValue === false
+                      ? themeSettings.dark.DARK
+                      : themeSettings.light.BCKG
+                  }
+                  size={24}
+                />
               </View>
             </TouchableOpacity>
           );
@@ -210,7 +249,6 @@ const styles = StyleSheet.create({
   mainContent: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "rgba(19, 194, 194, 0.09)",
     margin: 8,
     padding: 7,
     width: "97%",

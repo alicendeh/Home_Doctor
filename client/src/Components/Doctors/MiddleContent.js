@@ -1,10 +1,20 @@
 //import liraries
-import React, { Component } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
+import SettingContext from "../../Context/Seeting/SettingContext";
+import themeSettings from "../../theme";
 
 // create a component
 const MiddleContent = () => {
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
+
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
   const Data = [
     {
       key: 1,
@@ -59,7 +69,11 @@ const MiddleContent = () => {
           return (
             <View
               style={{
-                backgroundColor: item.bckg || "rgba(223, 220, 220, 0.51)",
+                // backgroundColor: item.bckg || "rgba(223, 220, 220, 0.51)",
+                backgroundColor:
+                  keepThemeValue === false
+                    ? "rgba(223, 220, 220, 0.51)"
+                    : "#F2F8F8",
                 paddingVertical: 7,
                 paddingHorizontal: 9,
                 margin: 7,
@@ -72,13 +86,20 @@ const MiddleContent = () => {
                 <Icon
                   name={item.icon}
                   size={28}
-                  color={item.bckg ? "white" : "rgba(29, 195, 195, 1)"}
+                  color={
+                    keepThemeValue === false
+                      ? themeSettings.light.PRIMARY
+                      : "#595E62"
+                  }
                 />
               </View>
               <Text
                 style={{
                   fontSize: 14,
-                  color: item.bckg ? "white" : "rgba(29, 195, 195, 1)",
+                  color:
+                    keepThemeValue === false
+                      ? themeSettings.light.PRIMARY
+                      : "#595E62",
                   textAlign: "center",
                 }}
               >
@@ -87,7 +108,10 @@ const MiddleContent = () => {
               <Text
                 style={{
                   fontSize: 14,
-                  color: item.bckg ? "white" : "rgba(29, 195, 195, 1)",
+                  color:
+                    keepThemeValue === false
+                      ? themeSettings.light.PRIMARY
+                      : "#595E62",
                   textAlign: "center",
                 }}
               >

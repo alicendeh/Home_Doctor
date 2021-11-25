@@ -15,7 +15,7 @@ import SettingContext from "../../Context/Seeting/SettingContext";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
 // create a component
-const MainHome = ({ headerTtile }) => {
+const MainHome = ({ headerTtile, placeHolder }) => {
   const settingContext = useContext(SettingContext);
   const { theme, changeTheme } = settingContext;
 
@@ -73,7 +73,7 @@ const MainHome = ({ headerTtile }) => {
           {headerTtile}
         </Text>
       </View>
-      <Input title="search" />
+      <Input title={placeHolder ? placeHolder :"Search"} />
     </SafeAreaView>
   );
 };
