@@ -3,24 +3,22 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    // backgroundColor: "#f5f5f5",
+    // paddingHorizontal: 18,
   },
   imgView: {
-    height: 200,
-    flexDirection: "row",
-    alignItems: "flex-end",
-    width: "100%",
-    justifyContent: "flex-end",
+    position: "absolute",
+    right: 0,
   },
   vector: {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginTop: -170,
+    marginTop: 55,
   },
   txt: {
     fontFamily: "Poppins-Light",
-    fontSize: 40,
+    fontSize: 35,
     color: "rgba(0,0,0,0.6)",
   },
   welcomeView: {
@@ -28,8 +26,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   txt1: {
-    fontSize: 20,
-    color: "#797b7d",
+    fontSize: 18,
   },
   gradient: {
     width: "85%",
@@ -40,12 +37,17 @@ const styles = StyleSheet.create({
   },
   indView: {
     // flex: 1,
-    width: "85%",
-    borderWidth: 2,
+    width: "87%",
+    borderWidth: 1,
     borderColor: "#cfcfcf",
-    height: 75,
+    height: 55,
     marginHorizontal: 30,
     marginVertical: 8,
+    borderRadius: 10,
+  },
+  inputView: {
+    // backgroundColor: "pink",
+    width: "100%",
   },
   thediv: {
     flexDirection: "row",
@@ -53,7 +55,8 @@ const styles = StyleSheet.create({
   iconView: {
     alignItems: "center",
     justifyContent: "center",
-    margin: 6,
+    // margin: 6,
+    marginLeft: 12,
   },
   inputText: {
     flex: 1,
@@ -61,30 +64,36 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
   },
+  input: {
+    marginHorizontal: 15,
+    flex: 1,
+    fontSize: 17,
+  },
   hide: {
-    justifyContent: "flex-end",
-    padding: 8,
+    justifyContent: "center",
+    paddingHorizontal: 12,
   },
   create: {
     color: "white",
     fontFamily: "Poppins-Light",
-    fontSize: 21,
+    fontSize: 18,
     textAlign: "center",
   },
   acct: {
     color: "rgba(139,137,137,1)",
     fontFamily: "Poppins-Light",
-    fontSize: 18,
+    fontSize: 15,
     textAlign: "center",
-    padding: 8,
+    paddingVertical: 8,
   },
   sign: {
     borderColor: "rgba(159,205,205,1)",
-    padding: 14,
     width: "85%",
-    borderWidth: 2,
+    borderWidth: 1.5,
     marginHorizontal: 30,
-    marginVertical: 8,
+    paddingVertical: 8,
+    marginBottom: 50,
+    borderRadius: 10,
   },
   signTxt: {
     fontFamily: "Poppins-Light",

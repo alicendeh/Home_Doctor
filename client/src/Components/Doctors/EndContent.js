@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import DoctorModal from "./DoctorModal";
-import { mainThemeFunction } from "../../Components";
 import SettingContext from "../../Context/Seeting/SettingContext";
 import themeSettings from "../../theme";
 // create a component
@@ -22,6 +21,7 @@ const EndContent = () => {
   }, [theme]);
 
   const [keepThemeValue, setkeepThemeValue] = useState(null);
+
   const Data = [
     {
       id: "1",
@@ -91,26 +91,21 @@ const EndContent = () => {
     },
   ];
 
-  const [Modal, setModal] = useState(Data);
-  console.log(mainThemeFunction(), "hhere");
+  const [ModalData, setModalData] = useState([]);
+  const [modalToggler, setmodalToggler] = useState(false);
 
-  const HandleModal = (key) => {
-    let modals = [...Data];
-    modals.map((item) => {
-      item.id == key && (item.render = true);
-    });
-    setModal(modals);
+  const HandleModal = (item) => {
+    setModalData(item);
+    setmodalToggler(!modalToggler);
   };
 
-  const closeModal = (key) => {
-    let modals = [...Data];
-    modals.map((item) => {
-      item.id == key && (item.render = false);
-    });
-    setModal(modals);
-  };
   return (
     <View style={styles.container}>
+      <DoctorModal
+        ModalData={ModalData}
+        setmodalToggler={setmodalToggler}
+        modalToggler={modalToggler}
+      />
       <Text
         style={[
           styles.txt,
@@ -124,9 +119,10 @@ const EndContent = () => {
       >
         Top Doctors
       </Text>
+
       <FlatList
         keyExtractor={(item) => item.id}
-        data={Modal}
+        data={Data}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
@@ -141,13 +137,8 @@ const EndContent = () => {
                   //  ,
                 },
               ]}
-              onPress={() => HandleModal(item.id)}
+              onPress={() => HandleModal(item)}
             >
-              <DoctorModal
-                openModal={item.render}
-                item={item}
-                close={closeModal}
-              />
               <View style={styles.content1}>
                 <View style={styles.imgDIv}>
                   <Image style={styles.imgDIv1} source={item.imageUri} />

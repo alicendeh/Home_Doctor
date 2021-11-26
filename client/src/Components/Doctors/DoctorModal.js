@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -10,28 +10,54 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
-import { useNavigation } from '@react-navigation/native';
-
-const { width, height } = Dimensions.get('screen');
+} from "react-native";
+import Entypo from "react-native-vector-icons/Entypo";
+import { useNavigation } from "@react-navigation/native";
+import themeSettings from "../../theme";
+import SettingContext from "../../Context/Seeting/SettingContext";
+const { width, height } = Dimensions.get("screen");
 // create a component
-const DoctorModal = (props) => {
+const DoctorModal = ({ ModalData, setmodalToggler, modalToggler }) => {
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
+
+  const {
+    name,
+    speciality,
+    rating,
+    description,
+    imageUri,
+    location,
+  } = ModalData;
   const navigation = useNavigation();
 
   const appointmentPage = () => {
-    props.close();
-    navigation.navigate('Appointment');
+    navigation.navigate("Appointment");
   };
   return (
-    <Modal visible={props.openModal} statusBarTranslucent>
-      <View style={styles.container}>
+    <Modal visible={modalToggler} statusBarTranslucent>
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor:
+              keepThemeValue === false
+                ? themeSettings.light.BCKG
+                : themeSettings.dark.BCKG,
+          },
+        ]}
+      >
         <View style={styles.mainView}>
-          <ImageBackground source={props.item.imageUri} style={styles.img}>
-            <Icon
+          <ImageBackground source={imageUri} style={styles.img}>
+            <Entypo
               name="chevron-thin-down"
               size={38}
-              onPress={props.close}
+              onPress={() => setmodalToggler(false)}
               style={styles.icon}
               color="white"
             />
@@ -40,27 +66,68 @@ const DoctorModal = (props) => {
         <View style={styles.mainTxt}>
           <View style={styles.txtVIew}>
             <Text style={styles.ratings}>
-              {props.item.rating}
-              <Icon name="star" size={21} color="white" />
+              {rating}
+              <Entypo name="star" size={21} color="white" />
             </Text>
           </View>
         </View>
-        <ScrollView style={styles.userD}>
-          <Text style={styles.txt}> {props.item.name} </Text>
-          <Text style={styles.txt1}>
-            <Icon name="location-pin" size={21} color="#13c2c2" />
-            {props.item.location},Cameroon
-          </Text>
-          <View style={styles.speciality}>
-            <Text style={styles.txt2}> {props.item.speciality} </Text>
-          </View>
-
-          <View>
-            <Text style={styles.des}>{props.item.description} </Text>
+        <ScrollView>
+          <View style={styles.infoView}>
+            <Text
+              style={[
+                styles.nameText,
+                {
+                  color:
+                    keepThemeValue === false
+                      ? themeSettings.dark.BCKG
+                      : themeSettings.light.BCKG,
+                },
+              ]}
+            >
+              {name}
+            </Text>
+            <View style={styles.locationView}>
+              <Entypo
+                name="location"
+                size={21}
+                color={themeSettings.light.PRIMARY}
+              />
+              <Text style={styles.locationText}>{location}</Text>
+            </View>
+            <View
+              style={[
+                styles.speciality,
+                {
+                  borderWidth: keepThemeValue === false ? 1.33 : 0,
+                },
+              ]}
+            >
+              <Text style={styles.txt2}>{speciality}</Text>
+            </View>
+            <View
+              style={{
+                paddingVertical: 12,
+                paddingBottom: 55,
+              }}
+            >
+              <Text
+                style={[
+                  styles.descText,
+                  {
+                    color:
+                      keepThemeValue === false
+                        ? "#AEA8A8"
+                        : themeSettings.light.BCKG,
+                  },
+                ]}
+              >
+                {description}
+              </Text>
+            </View>
           </View>
         </ScrollView>
         <TouchableOpacity style={styles.box} onPress={appointmentPage}>
-          <Text style={styles.sch}>View {props.item.name}'s Schedule </Text>
+          <Text style={styles.sch}>View {name}'s Schedule </Text>
         </TouchableOpacity>
       </View>
     </Modal>
@@ -73,17 +140,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mainView: {
-    backgroundColor: 'blue',
-    height: '50%',
+    height: "50%",
     borderWidth: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   img: {
     width: width * 1,
     height: height * 0.47,
     flex: 1,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   icon: {
     margin: 8,
@@ -91,71 +157,102 @@ const styles = StyleSheet.create({
   },
   txtVIew: {
     padding: 8,
-    backgroundColor: '#ffa800',
-    width: '21%',
+    backgroundColor: "#ffa800",
+    width: "21%",
     borderRadius: 10,
   },
   ratings: {
-    color: 'white',
+    color: "white",
     fontSize: 21,
   },
   mainTxt: {
-    height: '80%',
-    alignItems: 'flex-end',
-    marginTop: Dimensions.get('screen').width * -0.05,
+    height: "80%",
+    alignItems: "flex-end",
+    marginTop: Dimensions.get("screen").width * -0.05,
     margin: 12,
-    height: '5%',
+    height: "5%",
   },
   txt: {
     fontSize: 24,
-    fontFamily: 'Poppins-Light',
-    fontWeight: 'bold',
+    fontFamily: "Poppins-Light",
+    fontWeight: "bold",
   },
   txt1: {
-    color: 'rgba(19, 194, 194, 1)',
+    color: "rgba(19, 194, 194, 1)",
     fontSize: 18,
     margin: 6,
   },
   speciality: {
-    backgroundColor: 'rgba(239, 165, 22,0.2)',
-    padding: 8,
-    borderColor: '#ffa800',
+    backgroundColor: "rgba(239, 165, 22,0.2)",
+    borderColor: "#ffa800",
     borderRadius: 9,
-    margin: 6,
-    width: '34%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: 127,
+    justifyContent: "center",
+    alignItems: "center",
+    // borderWidth: 1.33,
+    paddingVertical: 5,
+    paddingHorizontal: 2,
   },
   txt2: {
-    fontFamily: 'Poppins-Light',
-    color: '#ffa800',
+    fontFamily: "Poppins-Light",
+    color: "#ffa800",
     fontSize: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
   },
   sch: {
-    color: 'white',
+    color: "white",
     padding: 10,
     fontSize: 18,
   },
   des: {
     fontSize: 22,
-    color: '#595e62',
+    color: "#595e62",
     marginVertical: 11,
     marginHorizontal: 29,
     lineHeight: 38,
+    textAlign: "left",
   },
   box: {
-    backgroundColor: 'rgba(240, 160, 5,0.88)',
-    borderWidth: 1,
-    borderColor: 'black',
-    width: '85%',
+    backgroundColor: "rgba(240, 160, 5,0.98)",
+    // borderWidth: 1,
+    // borderColor: "black",
+    width: "83%",
     borderRadius: 10,
-    justifyContent: 'center',
-    marginTop: -45,
+    justifyContent: "center",
+    alignItems: "center",
     marginVertical: 15,
     marginHorizontal: 30,
+    position: "absolute",
+    bottom: 0,
+    // elevation: 4,
+  },
+  infoView: {
+    paddingVertical: 10,
+    paddingHorizontal: 18,
+  },
+  nameText: {
+    fontSize: 23,
+    fontWeight: "bold",
+  },
+  locationView: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 12,
+  },
+  descText: {
+    lineHeight: 25,
+    fontSize: 17,
+    // fontFamily: "poppins-light",
+    textAlign: "left",
+    fontFamily: "Poppins-Light",
+  },
+  locationText: {
+    fontSize: 23,
+    color: themeSettings.light.PRIMARY,
+    paddingHorizontal: 12,
+    fontFamily: "Poppins-Light",
   },
 });
 

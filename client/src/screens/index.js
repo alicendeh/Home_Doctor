@@ -3,5 +3,6 @@ import Chat from "./Chat/Chat.screen";
 import Main from "./Main/Main.screen";
 import HealthTips from "./HealthTip/HealthTip.screen";
 import Login from "./Login/Login.screen";
+import Signup from "./Authentication/Authentication.screen";
 
-export { Authentication, Chat, Main, HealthTips, Login };
+export { Authentication, Chat, Main, HealthTips, Login, Signup };

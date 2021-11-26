@@ -2,8 +2,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Input, Header } from "../../Components";
-import themeSettings from "../../theme";
+import { Header } from "../../Components";
 import SettingContext from "../../Context/Seeting/SettingContext";
 
 // create a component

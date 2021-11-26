@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
   View,
   Text,
@@ -10,39 +10,89 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import Icon1 from "react-native-vector-icons/Entypo";
-import Icon2 from "react-native-vector-icons/FontAwesome5";
-import Icon4 from "react-native-vector-icons/MaterialCommunityIcons";
+import Entypo from "react-native-vector-icons/Entypo";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import LinnearGradient from "react-native-linear-gradient";
 import styles from "./Authentication.style";
+import SettingContext from "../../Context/Seeting/SettingContext";
+import themeSettings from "../../theme";
+
 // create a component
 const Authentication = ({ navigation }) => {
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
+
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor:
+            keepThemeValue === false
+              ? themeSettings.light.BCKG
+              : themeSettings.dark.BCKG,
+        },
+      ]}
+    >
       <View style={styles.imgView}>
-        <Image source={require("../../../assets/images/designntop.png")} />
+        <Image
+          source={
+            keepThemeValue === false
+              ? require("../../../assets/images/designntop.png")
+              : require("../../../assets/images/maki_doctor-15.png")
+          }
+        />
       </View>
       <View style={styles.vector}>
         <Image source={require("../../../assets/images/Vector.png")} />
       </View>
 
       <View style={styles.welcomeView}>
-        <Text style={styles.txt}>Welcome,</Text>
-        <Text style={styles.txt1}>Sign up to continue</Text>
+        <Text
+          style={[
+            styles.txt,
+            {
+              color:
+                keepThemeValue === false ? "rgba(0, 0, 0, 0.6)" : "#FEFEFE",
+            },
+          ]}
+        >
+          Welcome,
+        </Text>
+        <Text
+          style={[
+            styles.txt1,
+            {
+              color:
+                keepThemeValue === false ? "#797b7d" : "rgba(183, 183, 183, 1)",
+            },
+          ]}
+        >
+          Sign up to continue
+        </Text>
       </View>
       <ScrollView>
         <View style={styles.inputView}>
           <View style={styles.indView}>
             <View style={styles.thediv}>
               <View style={styles.iconView}>
-                <Icon2 name="user" color="#1dc3c3" size={38} />
+                <FontAwesome5 name="user" color="#1dc3c3" size={25} />
               </View>
               <View style={styles.inputText}>
                 <TextInput
-                  placeholder={`
-              Username
-              enter your username
-               `}
+                  placeholder="Username"
+                  placeholderTextColor={
+                    keepThemeValue === false
+                      ? "black"
+                      : "rgba(183, 183, 183, 1)"
+                  }
+                  style={styles.input}
                 />
               </View>
             </View>
@@ -50,14 +100,21 @@ const Authentication = ({ navigation }) => {
           <View style={styles.indView}>
             <View style={styles.thediv}>
               <View style={styles.iconView}>
-                <Icon4 name="email" color="#1dc3c3" size={38} />
+                <MaterialCommunityIcons
+                  name="email"
+                  color="#1dc3c3"
+                  size={25}
+                />
               </View>
               <View style={styles.inputText}>
                 <TextInput
-                  placeholder={`
-              Email
-              enter your email
-               `}
+                  placeholder="Email"
+                  placeholderTextColor={
+                    keepThemeValue === false
+                      ? "black"
+                      : "rgba(183, 183, 183, 1)"
+                  }
+                  style={styles.input}
                 />
               </View>
             </View>
@@ -65,18 +122,21 @@ const Authentication = ({ navigation }) => {
           <View style={styles.indView}>
             <View style={styles.thediv}>
               <View style={styles.iconView}>
-                <Icon1 name="lock-open" color="#1dc3c3" size={38} />
+                <Entypo name="lock-open" color="#1dc3c3" size={25} />
               </View>
               <View style={styles.inputText}>
                 <TextInput
-                  placeholder={`
-             Password
-              enter your password
-               `}
+                  placeholder="Password"
+                  placeholderTextColor={
+                    keepThemeValue === false
+                      ? "black"
+                      : "rgba(183, 183, 183, 1)"
+                  }
+                  style={styles.input}
                 />
               </View>
               <View style={styles.hide}>
-                <Icon1 name="eye-with-line" color="#1dc3c3" size={30} />
+                <Entypo name="eye-with-line" color="#1dc3c3" size={22} />
               </View>
             </View>
           </View>
@@ -89,7 +149,19 @@ const Authentication = ({ navigation }) => {
             <Text style={styles.create}>Create account</Text>
           </LinnearGradient>
           <View>
-            <Text style={styles.acct}>Already have an account?</Text>
+            <Text
+              style={[
+                styles.acct,
+                {
+                  color:
+                    keepThemeValue === false
+                      ? "#797b7d"
+                      : "rgba(183, 183, 183, 1)",
+                },
+              ]}
+            >
+              Already have an account?
+            </Text>
           </View>
         </View>
         <TouchableOpacity

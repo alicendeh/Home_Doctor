@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Drawer from "./src/Navigation/Home";
 import SettingState from "./src/Context/Seeting/SettingState";
-import { Login } from "./src/screens";
+import { Login, Signup } from "./src/screens";
 // create a component
 const Stack = createStackNavigator();
 
@@ -21,6 +21,7 @@ const MyComponent = () => {
         >
           <Stack.Screen component={Drawer} name="Drawer" />
           <Stack.Screen component={Login} name="Login" />
+          <Stack.Screen component={Signup} name="Signup" />
         </Stack.Navigator>
       </NavigationContainer>
     </SettingState>

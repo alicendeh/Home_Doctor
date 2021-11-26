@@ -61,8 +61,9 @@ const MainHome = ({ headerTtile, placeHolder }) => {
       <View>
         <Text
           style={{
-            fontSize: 27,
-            fontWeight: "bold",
+            fontSize: 26,
+            fontFamily: "Poppins-Black",
+            // fontWeight: "bold",
             paddingTop: 12,
             color:
               keepThemeValue === false
@@ -73,7 +74,7 @@ const MainHome = ({ headerTtile, placeHolder }) => {
           {headerTtile}
         </Text>
       </View>
-      <Input title={placeHolder ? placeHolder :"Search"} />
+      <Input title={placeHolder ? placeHolder : "Search"} />
     </SafeAreaView>
   );
 };

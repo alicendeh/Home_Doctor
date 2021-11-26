@@ -30,9 +30,10 @@ const styles = StyleSheet.create({
   name: {
     color: theme.light.COLOR,
     marginTop: 14,
-    fontSize: 22,
-    fontWeight: "bold",
+    fontSize: 25,
+    fontFamily: "PortLligatSans-Regular",
   },
+
   footer: {
     borderTopWidth: 1,
     borderTopColor: "#ccc",

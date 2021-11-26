@@ -1,28 +1,42 @@
-//import liraries
-import { NavigationContainer } from "@react-navigation/native";
-import React, { Component } from "react";
-import { View, TouchableOpacity, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
+import { Header } from "../../Components";
+import styles from "./Chat.style";
+import SettingContext from "../../Context/Seeting/SettingContext";
+import themeSettings from "../../theme";
 
 const Chat = () => {
-  const navigation = useNavigation();
+  const settingContext = useContext(SettingContext);
+  const { theme } = settingContext;
+  const [keepThemeValue, setkeepThemeValue] = useState(null);
 
-  const openDrawer = () => {
-    navigation.openDrawer();
-  };
+  useEffect(() => {
+    setkeepThemeValue(theme);
+  }, [theme]);
 
   return (
-    <View>
-      <View
-        style={{
-          padding: 19,
-        }}
-      >
-        <TouchableOpacity onPress={openDrawer}>
-          <Image source={require("../../../assets/images/stair.png")} />
-        </TouchableOpacity>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          backgroundColor:
+            keepThemeValue === false
+              ? themeSettings.light.BCKG
+              : themeSettings.dark.BCKG,
+        },
+      ]}
+    >
+      <Header headerTtile="Chat" />
+      <View style={styles.contentView}>
+        <Text style={styles.convText}>Start Conversation</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

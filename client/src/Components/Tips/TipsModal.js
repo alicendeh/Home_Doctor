@@ -7,9 +7,9 @@ import themeSettings from "../../theme";
 
 const TipsModal = ({ openModal, storeModalData, setopenModal }) => {
   const [keepThemeValue, setkeepThemeValue] = useState(null);
-
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
+
   const { description, imageUri, content } = storeModalData;
 
   useEffect(() => {

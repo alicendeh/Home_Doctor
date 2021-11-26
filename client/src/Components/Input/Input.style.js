@@ -6,12 +6,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 20,
     backgroundColor: "#eee",
+    height: 45,
   },
   IconView: {
     alignItems: "center",
     justifyContent: "center",
     margin: 12,
-    paddingHorizontal: 11,
+    // paddingHorizontal: 1,
   },
   inputext: {
     flex: 1,
