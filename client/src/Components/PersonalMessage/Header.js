@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginHorizontal: 14,
     paddingHorizontal: 10,
-    elevation: 15,
+    // elevation: 15,
     shadowColor: "black",
   },
 });

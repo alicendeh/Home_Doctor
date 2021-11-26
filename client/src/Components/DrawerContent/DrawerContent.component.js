@@ -68,6 +68,7 @@ const DrawerContent = () => {
       }}
     >
       <FlatList
+        keyExtractor={() => Math.random().toString()}
         ListHeaderComponent={
           <View style={styles.main}>
             <RoundImage uri="https://cutt.ly/qTS2POc" />

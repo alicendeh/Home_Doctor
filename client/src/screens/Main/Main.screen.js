@@ -57,7 +57,11 @@ const DoctorsPage = () => {
     >
       <TopContent />
 
-      <FlatList data={data} renderItem={({ item }) => componentList[item]} />
+      <FlatList
+        keyExtractor={() => Math.random().toString()}
+        data={data}
+        renderItem={({ item }) => componentList[item]}
+      />
     </View>
   );
 };

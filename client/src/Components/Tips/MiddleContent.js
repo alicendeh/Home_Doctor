@@ -86,7 +86,7 @@ const MiddleContent = (props) => {
         openModal={openModal}
       />
       <FlatList
-        keyExtractor={(item) => item.id}
+        keyExtractor={() => Math.random().toString()}
         key={() => {
           item.description;
         }}
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "50%",
     borderRadius: 17,
-    shadowColor: "red",
-    elevation: 85,
+    // shadowColor: "red",
+    // elevation: 85,
   },
   theView: {
     paddingHorizontal: 18,

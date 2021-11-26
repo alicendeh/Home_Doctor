@@ -13,6 +13,44 @@ const styles = StyleSheet.create({
     fontSize: 19,
     color: "#FFA800",
   },
+  firstView: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  main: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 12,
+    flex: 1,
+  },
+  badge: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 23,
+    height: 23,
+    borderRadius: 50,
+    padding: 5,
+  },
+  txt: {
+    marginHorizontal: 12,
+  },
+  name: {
+    fontFamily: "Poppins-Light",
+    fontSize: 18,
+    fontWeight: "700",
+  },
+  title: {
+    marginVertical: 5,
+    color: "#333",
+  },
+  lastContent: {
+    alignItems: "center",
+  },
+  numBadge: {
+    color: "white",
+    fontSize: 11,
+  },
 });
 
 export default styles;

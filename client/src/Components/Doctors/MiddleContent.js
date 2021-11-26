@@ -64,7 +64,7 @@ const MiddleContent = () => {
         data={Data}
         showsHorizontalScrollIndicator={false}
         horizontal
-        keyExtractor={(item) => item.name}
+        keyExtractor={() => Math.random().toString()}
         renderItem={({ item }) => {
           return (
             <View

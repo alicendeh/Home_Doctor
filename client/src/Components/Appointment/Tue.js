@@ -62,6 +62,7 @@ const MyComponent = () => {
       <Text style={styles.txt}>Avialable Times</Text>
 
       <FlatList
+        keyExtractor={() => Math.random().toString()}
         data={Data}
         numColumns="3"
         renderItem={({ item }) => {

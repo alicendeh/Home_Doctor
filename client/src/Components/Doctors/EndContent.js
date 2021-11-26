@@ -121,7 +121,7 @@ const EndContent = () => {
       </Text>
 
       <FlatList
-        keyExtractor={(item) => item.id}
+        keyExtractor={() => Math.random().toString()}
         data={Data}
         renderItem={({ item }) => {
           return (
