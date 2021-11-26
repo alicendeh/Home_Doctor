@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
   },
   title: {
     marginVertical: 5,
-    color: "#333",
   },
   lastContent: {
     alignItems: "center",

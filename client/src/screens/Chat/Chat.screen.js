@@ -119,8 +119,32 @@ const Chat = () => {
                   <RoundImage uri={item.uri} />
                 </View>
                 <View style={styles.txt}>
-                  <Text style={styles.name}>{item.name}</Text>
-                  <Text style={styles.title}>{item.title}</Text>
+                  <Text
+                    style={[
+                      styles.name,
+                      {
+                        color:
+                          keepThemeValue === false
+                            ? themeSettings.dark.BCKG
+                            : themeSettings.light.BCKG,
+                      },
+                    ]}
+                  >
+                    {item.name}
+                  </Text>
+                  <Text
+                    style={[
+                      styles.title,
+                      {
+                        color:
+                          keepThemeValue === false
+                            ? "#333"
+                            : themeSettings.light.BCKG,
+                      },
+                    ]}
+                  >
+                    {item.title}
+                  </Text>
                 </View>
               </View>
               <View style={styles.lastContent}>
