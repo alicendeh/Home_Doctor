@@ -7,7 +7,7 @@ const Input = ({ title }) => {
   return (
     <View style={styles.input}>
       <View style={styles.IconView}>
-        <FontAwesome5 name="search" size={25} color="grey" />
+        <FontAwesome5 name="search" size={21} color="grey" />
       </View>
       <TextInput style={[styles.inputext]} placeholder={title} />
     </View>

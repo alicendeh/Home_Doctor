@@ -9,7 +9,7 @@ const COLORS = {
   APPROVE: "rgba(239, 165, 22, 0.2)",
   DENY: "rgba(29, 195, 195, 0.19)",
   RED: "#FF0000",
-  CHAT_RECEIVER: "rgba(50, 53, 55, 0.8)",
+  CHAT_RECEIVER: "#374652",
   CHAT_SENDER: "#FFA800",
   BCKG: "#35393C",
 };

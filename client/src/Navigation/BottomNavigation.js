@@ -80,7 +80,7 @@ const BottomNavigation = ({ navigation }) => {
       />
       <Tab.Screen
         component={Chat}
-        name="Chat"
+        name="c"
         options={{
           tabBarLabel: "All Chat",
           tabBarColor: "#484c6a",
@@ -108,11 +108,10 @@ const BottomNavigation = ({ navigation }) => {
       />
       <Tab.Screen
         component={Chat}
-        name="Message"
+        name="Chat"
         options={{
-          tabBarLabel: "Message",
+          tabBarLabel: "Chat",
           tabBarColor: "#484c6a",
-
           tabBarIcon: ({ focused }) => (
             <Icon1 name="message" style={styles.icon} color="white" size={25} />
           ),

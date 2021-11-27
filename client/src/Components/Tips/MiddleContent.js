@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import themeSettings from "../../theme";
 import SettingContext from "../../Context/Seeting/SettingContext";
 import ModalPop from "./TipsModal";
+import LinnearGradient from "react-native-linear-gradient";
 
 const MiddleContent = (props) => {
   const settingContext = useContext(SettingContext);
@@ -103,7 +104,7 @@ const MiddleContent = (props) => {
                   alignItems: "center",
                 }}
               >
-                <View
+                {/* <View
                   style={{
                     backgroundColor:
                       keepThemeValue === false
@@ -115,7 +116,25 @@ const MiddleContent = (props) => {
                     marginVertical: 51,
                     position: "absolute",
                   }}
-                ></View>
+                ></View> "#b7287a", "#562bb7c", "#2b86c5"*/}
+                <LinnearGradient
+                  colors={["#b7287a", "#562b7c", "#2b86c5"]}
+                  style={{
+                    backgroundColor:
+                      keepThemeValue === false
+                        ? themeSettings.light.FOOTER
+                        : "#282828",
+                    width: "100%",
+                    height: 180,
+                    borderRadius: 15,
+                    marginVertical: 51,
+                    position: "absolute",
+                  }}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1.43, y: 0 }}
+                >
+                  {/* <Text style={styles.create}>Sign in</Text> */}
+                </LinnearGradient>
                 <View style={styles.imgView}>
                   <Image style={styles.imgView1} source={item.imageUri} />
                   <Text
