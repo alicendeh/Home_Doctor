@@ -10,7 +10,8 @@ import { Header, RoundImage } from "../../Components";
 import styles from "./Chat.style";
 import SettingContext from "../../Context/Seeting/SettingContext";
 import themeSettings from "../../theme";
-const Chat = () => {
+
+const Chat = (props) => {
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
   const [keepThemeValue, setkeepThemeValue] = useState(null);
@@ -113,7 +114,10 @@ const Chat = () => {
             </TouchableOpacity>
           }
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.main}>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("Conversation")}
+              style={styles.main}
+            >
               <View style={styles.firstView}>
                 <View>
                   <RoundImage uri={item.uri} />
@@ -148,24 +152,46 @@ const Chat = () => {
                 </View>
               </View>
               <View style={styles.lastContent}>
-                <Text
-                  style={{
-                    color: item.badge ? themeSettings.light.PRIMARY : "#333",
-                  }}
-                >
-                  {item.time}
-                </Text>
-                <View
-                  style={[
-                    styles.badge,
-                    {
-                      backgroundColor: item.badge
-                        ? themeSettings.light.PRIMARY
-                        : themeSettings.light.BCKG,
-                    },
-                  ]}
-                >
-                  <Text style={styles.numBadge}>{item.badge}</Text>
+                {item.badge ? (
+                  <Text
+                    style={{
+                      // color: themeSettings.light.PRIMARY,
+                      color:
+                        keepThemeValue === false
+                          ? themeSettings.light.PRIMARY
+                          : themeSettings.light.PRIMARY,
+                    }}
+                  >
+                    {item.time}
+                  </Text>
+                ) : (
+                  <Text
+                    style={{
+                      color:
+                        keepThemeValue === false
+                          ? "#333"
+                          : themeSettings.light.BCKG,
+                    }}
+                  >
+                    {item.time}
+                  </Text>
+                )}
+                <View>
+                  {item.badge ? (
+                    <View
+                      style={[
+                        styles.badge,
+                        {
+                          backgroundColor:
+                            keepThemeValue === false
+                              ? themeSettings.light.PRIMARY
+                              : themeSettings.light.PRIMARY,
+                        },
+                      ]}
+                    >
+                      <Text style={styles.numBadge}>{item.badge}</Text>
+                    </View>
+                  ) : null}
                 </View>
               </View>
             </TouchableOpacity>

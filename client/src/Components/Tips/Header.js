@@ -53,7 +53,7 @@ const MainHome = ({ headerTtile, placeHolder }) => {
         </TouchableOpacity>
         <View style={styles.userImg}>
           <Image
-            source={{ uri: "https://cutt.ly/qviZNy8" }}
+            source={{ uri: "https://bit.ly/3nWOacn" }}
             style={styles.userImg1}
           />
         </View>
