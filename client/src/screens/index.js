@@ -5,5 +5,15 @@ import HealthTips from "./HealthTip/HealthTip.screen";
 import Login from "./Login/Login.screen";
 import Signup from "./Authentication/Authentication.screen";
 import Conversation from "./Conversation/Conversation.screen";
+import Appointment from "./Appointment/Appointment";
 
-export { Authentication, Chat, Main, HealthTips, Login, Signup, Conversation };
+export {
+  Authentication,
+  Chat,
+  Main,
+  HealthTips,
+  Login,
+  Signup,
+  Conversation,
+  Appointment,
+};

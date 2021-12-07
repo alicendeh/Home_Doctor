@@ -8,7 +8,7 @@ import themeSettings from "../../theme";
 import SettingContext from "../../Context/Seeting/SettingContext";
 
 // create a component
-const DoctorsPage = () => {
+const DoctorsPage = (props) => {
   const [keepThemeValue, setkeepThemeValue] = useState(null);
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
@@ -33,7 +33,7 @@ const DoctorsPage = () => {
     </Text>,
     <MiddleContent />,
 
-    <EndContent />,
+    <EndContent {...props} />,
     <>
       <View
         style={{

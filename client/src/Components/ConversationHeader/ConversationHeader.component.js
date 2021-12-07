@@ -19,7 +19,7 @@ const Conversation = (props) => {
     <View>
       <View style={styles.container}>
         <View style={styles.firstView}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Main")}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Chat")}>
             <AntDesign
               name="arrowleft"
               size={21}

@@ -17,7 +17,12 @@ import themeSettings from "../../theme";
 import SettingContext from "../../Context/Seeting/SettingContext";
 const { width, height } = Dimensions.get("screen");
 // create a component
-const DoctorModal = ({ ModalData, setmodalToggler, modalToggler }) => {
+const DoctorModal = ({
+  ModalData,
+  setmodalToggler,
+  modalToggler,
+  navigation,
+}) => {
   const [keepThemeValue, setkeepThemeValue] = useState(null);
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
@@ -34,9 +39,10 @@ const DoctorModal = ({ ModalData, setmodalToggler, modalToggler }) => {
     imageUri,
     location,
   } = ModalData;
-  const navigation = useNavigation();
 
   const appointmentPage = () => {
+    console.log("hey");
+    setmodalToggler(false);
     navigation.navigate("Appointment");
   };
   return (

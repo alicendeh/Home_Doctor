@@ -78,9 +78,9 @@ const BottomNavigation = ({ navigation }) => {
           tabBarButton: (props) => <MiddleBar {...props} />,
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         component={Chat}
-        name="c"
+        name="Chat"
         options={{
           tabBarLabel: "All Chat",
           tabBarColor: "#484c6a",
@@ -90,7 +90,7 @@ const BottomNavigation = ({ navigation }) => {
           ),
           tabBarButton: (props) => <MiddleBar {...props} />,
         }}
-      />
+      /> */}
       <Tab.Screen
         component={Main}
         name="Doctors"

@@ -6,7 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import themeSettings from "../../theme";
 import SettingContext from "../../Context/Seeting/SettingContext";
 
-const Conversation = () => {
+const Conversation = (props) => {
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
   const [keepThemeValue, setkeepThemeValue] = useState(null);
@@ -14,6 +14,7 @@ const Conversation = () => {
   useEffect(() => {
     setkeepThemeValue(theme);
   }, [theme]);
+
   return (
     <SafeAreaView
       style={[
@@ -26,8 +27,8 @@ const Conversation = () => {
         },
       ]}
     >
-      <ConversationHeader />
-      <ConversationBox />
+      <ConversationHeader {...props} />
+      <ConversationBox {...props} />
       <View>
         <View
           style={[

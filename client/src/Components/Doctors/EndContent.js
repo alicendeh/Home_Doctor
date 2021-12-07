@@ -12,7 +12,7 @@ import DoctorModal from "./DoctorModal";
 import SettingContext from "../../Context/Seeting/SettingContext";
 import themeSettings from "../../theme";
 // create a component
-const EndContent = () => {
+const EndContent = (props) => {
   const settingContext = useContext(SettingContext);
   const { theme } = settingContext;
 
@@ -102,6 +102,7 @@ const EndContent = () => {
   return (
     <View style={styles.container}>
       <DoctorModal
+        navigation={props.navigation}
         ModalData={ModalData}
         setmodalToggler={setmodalToggler}
         modalToggler={modalToggler}

@@ -129,8 +129,9 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get("screen").width * -0.8,
   },
   app: {
-    margin: 12,
+    // margin: 12,
     fontSize: 21,
+    marginVertical: 28,
   },
   TextInput: {
     borderColor: "#efa516",
